@@ -38,14 +38,16 @@ def output_reader(proc):
     for line in iter(proc.stdout.readline, b""):
         if line and 0 < len(line):
             s_print("got line: {0}".format(line), end="")
-        pass
+        else:
+            break
 
 
 def stderr_reader(proc):
     for line in iter(proc.stderr.readline, b""):
         if line and 0 < len(line):
             s_print("got line: {0}".format(line), end="")
-        pass
+        else:
+            break
 
 
 class PrefixFilter(Filter):
